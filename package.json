@@ -1,6 +1,6 @@
 {
   "name": "react-native-sqlite-tool",
-  "version": "2.6.0",
+  "version": "1.0.1",
   "description": "A helper use to react-native-sqlite-storage",
   "main": "/dist/index.js",
   "types": "/dist/index.d.ts",
@@ -14,7 +14,7 @@
     "sqlite",
     "react-native-sqlite-storage"
   ],
-  "author": "wanxianliang",
+  "author": "xianliang",
   "license": "ISC",
   "dependencies": {
     "react-native-sqlite-storage": "^5.0.0",
