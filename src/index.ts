@@ -1,22 +1,47 @@
 import SQLite, { ResultSet } from 'react-native-sqlite-storage';
-import { CodeTool } from './util';
 
+/**
+ * Code util
+ */
+export class CodeTool {
+
+    static isStringEmpty(str?: string) {
+        if (str && typeof str == "string" && str.length > 0) {
+            return false;
+        }
+        return true;
+    }
+
+    static waitTime(time: number | 0) {
+        return new Promise((resolve: any, reject) => {
+            setTimeout(() => {
+                resolve();
+            }, time);
+        })
+    }
+}
+
+/**
+ * Base class from components to extend
+ */
 export class SqlLite<T> {
     hasInit: boolean;
     dbName: string;
     db: SQLite.SQLiteDatabase | undefined;
     tableName: string;
     primaryKey: string;
+    createTableSql: string;
     constructor() {
         SQLite.DEBUG(false);
-        this.dbName = "lucky.db";
+        this.dbName = "default.db";
         this.tableName = "";
+        this.createTableSql = "";
         this.primaryKey = "id";
         this.hasInit = false;
         this.init();
     }
-    initTable() {
-
+    async initTable() {
+        return await this.createTable(this.createTableSql);
     }
     async executeSql(sql: string, isInit?: boolean) {
         if (!isInit && this.hasInit == false) {

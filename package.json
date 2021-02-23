@@ -1,26 +1,35 @@
 {
   "name": "react-native-sqlite-tool",
-  "version": "1.0.1",
-  "description": "A helper use to react-native-sqlite-storage",
+  "version": "1.0.3",
+  "description": "a easy way to use sqlite in react native",
   "main": "/dist/index.js",
-  "types": "/dist/index.d.ts",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "release": "tsc && npm publish"
+    "build": "rm index.d.ts && tsc",
+    "release": "npm run build && npm publish"
   },
   "keywords": [
-    "react native",
+    "react-native-sqlite-storage",
+    "react-native-sqlite",
+    "react-component",
+    "reactnative",
+    "react-native",
     "sqlite",
-    "react-native-sqlite-storage"
+    "sqlite3",
+    "ios",
+    "android",
+    "promise",
+    "cordova-sqlite-storage"
   ],
   "author": "xianliang",
-  "license": "ISC",
+  "license": "MIT",
+  "homepage": "https://github.com/wanxianliang/react-native-sqlite-tool",
   "dependencies": {
-    "react-native-sqlite-storage": "^5.0.0",
-    "typescript": "^4.1.5"
+    "react-native-sqlite-storage": "^5.0.0"
   },
   "devDependencies": {
-    "@types/react-native-sqlite-storage": "^5.0.0"
+    "@types/react-native-sqlite-storage": "^5.0.0",
+    "typescript": "^4.1.5"
   }
 }
