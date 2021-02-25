@@ -16,6 +16,8 @@ class DemoSql extends SqlLite<T> {
     )`;
     constructor() {
         super();
+        //important
+        this.init();
     }
 }
 

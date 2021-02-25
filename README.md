@@ -36,6 +36,8 @@ Then follow the instructions to use react-native-sqlite-tool;
        )`;
        constructor() {
            super();
+           //important
+           this.init();
        }
    }
    

@@ -25,20 +25,14 @@ export class CodeTool {
  * Base class from components to extend
  */
 export class SqlLite<T> {
-    hasInit: boolean;
-    dbName: string;
+    hasInit: boolean = false;
+    dbName: string = "default.db";;
     db: SQLite.SQLiteDatabase | undefined;
-    tableName: string;
-    primaryKey: string;
-    createTableSql: string;
+    tableName: string = "";
+    primaryKey: string = "id";
+    createTableSql: string = "";
+    debug: boolean = false;
     constructor() {
-        SQLite.DEBUG(false);
-        this.dbName = "default.db";
-        this.tableName = "";
-        this.createTableSql = "";
-        this.primaryKey = "id";
-        this.hasInit = false;
-        this.init();
     }
     async initTable() {
         return await this.createTable(this.createTableSql);
@@ -56,6 +50,11 @@ export class SqlLite<T> {
         })
     }
     async init() {
+        //check
+        if (!this.tableName) {
+            throw new Error("make sure you have set tableName");
+        }
+        SQLite.DEBUG(this.debug);
         this.db = await this.open(this.dbName);
         await this.initTable();
         this.hasInit = true;
