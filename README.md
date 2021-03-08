@@ -121,7 +121,7 @@ Then follow the instructions to use react-native-sqlite-tool;
    selectBySql(selectSql: string): Promise<T[]>
 
    ```js
-   demoSqlInstance.selectOne("select * from todo where id='123' order by create_time desc")
+   demoSqlInstance.selectBySql("select * from todo where id='123' order by create_time desc")
    ```
 
    
